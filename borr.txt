@@ -1,0 +1,29 @@
+AGREGAR AL JS 
+
+// Mostrar reloj AGREGAR AL CODIGO 
+function actualizarReloj() {
+    const ahora = new Date();
+
+    const dias = ["Domingo", "Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado"];
+    const meses = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+
+    const diaSemana = dias[ahora.getDay()];
+    const dia = ahora.getDate();
+    const mes = meses[ahora.getMonth()];
+    const año = ahora.getFullYear();
+
+    const hora = ahora.toLocaleTimeString("es-AR", { hour12: false });
+
+    const texto = `${diaSemana} ${dia} de ${mes} de ${año} - ${hora}`;
+    document.getElementById("reloj").textContent = texto;
+}
+
+// Actualizar cada segundo
+setInterval(actualizarReloj, 1000);
+// Mostrar de entrada
+actualizarReloj();
+
+
+
+
