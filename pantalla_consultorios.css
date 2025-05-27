@@ -57,7 +57,7 @@ body {
 
 .container {
     width: 90vw;
-   height: 75vh;
+    height: 75vh;
     background-color: #F2F2F2;
     padding: 10px;
     border-radius: 5px;
@@ -82,19 +82,17 @@ table {
     table-layout: fixed;
 }
 
-thead tr {
+thead tr { /* Encabezado de la tabla */
     background-color: var(--fondo-verde-oscuro);
-}
-
-thead th {
     color: #fff;
     font-size: 3vh;
-    padding: 8px 0;
+    padding: 3px 0;
     border-radius: 8px;
     border: 1px solid #fff;
     text-align: center;
     font-weight: bold;
 }
+
 
 tbody tr {
     transition: background 0.3s;
@@ -107,64 +105,58 @@ td {
     border-bottom: 4px solid transparent;
     transition: all 0.3s ease;
     text-align: center;
-    font-size: 5vh;
+    font-size: 4vh;
     border-radius: 9px;
     word-break: break-word;
 }
 
 td:nth-child(2) {
     width: 25%;
-    font-weight: bold;
 }
 
 
-tr:nth-child(even) td {
+tr:nth-child(even) td { /* Filas pares */
     background-color: #69BFA7;
     border-radius: 9px;
-    border: 1px solid #fff;
 }
 
-tr:hover td {
+tr:hover td { /* Efecto hover */
     background-color: #bcdcff;
     transform: scale(1.01);
 }
 
- 
-td.consultorio::before {
+tr .consultorio::before { /* Pseudo-elemento para el consultorio */
     content: "Consultorio ";
-    font-size: 0.6em;
-    margin-right: 5px;
 }
 
-/* Fila de paciente llamado */
+
+/* Estilos dependiento del estado del turno */
+
 .llamado td {
     background-color: #cc0202 !important;
-    color: #fff;
+    color: #ffffff;
     font-weight: bold;
     animation: parpadeo 1s infinite alternate;
     border-radius: 8px;
     padding: 5px auto;
-}
-
-.llamado td.nombre {
-    font-size: 6vh;
+    font-size: 5.5vh;
     text-align: center;
-    font-weight: bold;
-}
 
+}
 .llamado td.nombre,
 .llamado td.consultorio {
-    white-space: wrap;
-    overflow: hidden;
+    white-space: wrap; 
+    overflow: hidden; /* Evita el desbordamiento de texto */
     text-overflow: ellipsis;
 }
 
+/*
 .llamado td.consultorio {
     font-size: 6vh;
     text-align: center;
     font-weight: bold;
     position: relative;
-}
+} */
 
 .llamado td.consultorio::before {
     content: "Consultorio ";
@@ -174,13 +166,33 @@ td.consultorio::before {
     margin-right: 5px;
 }
 
-.llamado td.nombre::before {
+/* .llamado td.nombre::before {
     content: "▶ ";
-    font-size: 1.2em;
-    align-items: left;
-    color: #ffb936;
+    font-size: 1em;
+    vertical-align: middle;
+    color: #69BFA7;
+    font-weight: bold;
     animation: parpadeo .5s infinite alternate;
 }
+ */
+
+
+.atendido td {
+    display: none;
+}
+/* ...existing code... */
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* Animación filas llamado  */
 @keyframes parpadeo {
@@ -210,13 +222,4 @@ td.consultorio::before {
 
 .oculto {
     display: none;
-}
-
-
-
-
-
-/*PROBANDO JS ELIMINAR */
-.espera tr {
-    background-color: #f700ea !important;
 }
